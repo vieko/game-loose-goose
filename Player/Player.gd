@@ -9,8 +9,11 @@ enum Modes { WALK, POOP }
 # DEFINE Variables
 @onready var animatedSprite := $AnimatedSprite2D
 @onready var poopingPositions := $PoopingPositions
+@onready var poopDelayTimer := $PoopDelayTimer
 
 @export var speed: float = 100
+@export var poopDelay: float = 0.1
+
 var velocity := Vector2(0,0)
 var current_mode = Modes.WALK
 
@@ -24,10 +27,10 @@ func _process(delta):
   else:
     animatedSprite.play("walk_up")
 
-  # TODO CHECK if on shooting mode
-
   # CHECK if shooting
-  if Input.is_action_pressed("poop"):
+  # TODO CHECK if on shooting mode
+  if Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
+    poopDelayTimer.start(poopDelay)
     for child in poopingPositions.get_children():
       var poop := plPoop.instantiate()
       poop.global_position = child.global_position

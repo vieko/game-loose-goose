@@ -48,6 +48,7 @@ animations = [{
 [node name="Player" type="Area2D"]
 script = ExtResource("1_hyoxu")
 speed = 400.0
+poopDelay = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -62,3 +63,6 @@ animation = &"walk_up"
 
 [node name="Butthole" type="Node2D" parent="PoopingPositions"]
 position = Vector2(0, -24)
+
+[node name="PoopDelayTimer" type="Timer" parent="."]
+one_shot = true
