@@ -1,5 +1,6 @@
 extends ParallaxBackground
 
+# TODO should this be controlled over at Main?
 @export var camera_velocity: Vector2 = Vector2(0,100)
 
 func _process(delta: float) -> void:
