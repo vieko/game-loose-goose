@@ -1,21 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://rd3nmn3ct4ag"]
+[gd_scene load_steps=8 format=3 uid="uid://rd3nmn3ct4ag"]
 
-[ext_resource type="Texture2D" uid="uid://bm5yn0i4m5kbj" path="res://Textures/playerGeneric.png" id="1_hnf2i"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_hyoxu"]
+[ext_resource type="Texture2D" uid="uid://bm5yn0i4m5kbj" path="res://Textures/playerWalkGeneric.png" id="2_ne3il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4t20j"]
 size = Vector2(75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tspp2"]
+atlas = ExtResource("2_ne3il")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j3ah"]
+atlas = ExtResource("2_ne3il")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dsxx"]
+atlas = ExtResource("2_ne3il")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rr6dq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tspp2")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j3ah")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dsxx")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_hyoxu")
 speed = 400.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_hnf2i")
-hframes = 3
-frame = 1
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_4t20j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_rr6dq")
+animation = &"walk_up"

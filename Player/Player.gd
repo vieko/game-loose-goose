@@ -1,20 +1,18 @@
 extends Area2D
 
 # DEFINE Variables
-@onready var sprite := $Sprite2D
+@onready var animatedSprite := $AnimatedSprite2D
 
 @export var speed: float = 100
 var velocity := Vector2(0,0)
 
 func _process(delta):                                                           # less time sensitive things should go here
   if velocity.x < 0:
-    sprite.frame = 0
+    animatedSprite.play("walk_left")
   elif velocity.x > 0:
-    sprite.frame = 2
+    animatedSprite.play("walk_right")
   else:
-    sprite.frame = 1
-
-  # TODO Swap single frames for animations
+    animatedSprite.play("walk_up")
 
 func _physics_process(delta):                                                   # anything input or time sensitive should go here
   var directionVector := Vector2(0,0)                                           # fixes diagonal acceleration
