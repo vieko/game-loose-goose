@@ -28,13 +28,14 @@ func _process(delta):
     animatedSprite.play("walk_up")
 
   # CHECK if shooting
-  # TODO CHECK if on shooting mode
-  if Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
+  if current_mode == Modes.POOP and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
     poopDelayTimer.start(poopDelay)
     for child in poopingPositions.get_children():
       var poop := plPoop.instantiate()
       poop.global_position = child.global_position
       get_tree().current_scene.add_child(poop)
+  elif current_mode == Modes.WALK and Input.is_action_pressed("poop"):
+    print("Broose can't drop a deuce when walking!")
 
 # TIME SENSITIVE THINGS SHOULD GO HERE
 func _physics_process(delta):
