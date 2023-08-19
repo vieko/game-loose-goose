@@ -8,6 +8,8 @@ enum Modes { WALK, POOP }
 
 # DEFINE Variables
 @onready var animatedSprite := $AnimatedSprite2D
+@onready var poopingPositions := $PoopingPositions
+
 @export var speed: float = 100
 var velocity := Vector2(0,0)
 var current_mode = Modes.WALK
@@ -26,9 +28,10 @@ func _process(delta):
 
   # CHECK if shooting
   if Input.is_action_pressed("poop"):
-    var poop := plPoop.instantiate()
-    poop.position = position
-    get_tree().current_scene.add_child(poop)
+    for child in poopingPositions.get_children():
+      var poop := plPoop.instantiate()
+      poop.global_position = child.global_position
+      get_tree().current_scene.add_child(poop)
 
 # TIME SENSITIVE THINGS SHOULD GO HERE
 func _physics_process(delta):

@@ -57,3 +57,8 @@ shape = SubResource("RectangleShape2D_4t20j")
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rr6dq")
 animation = &"walk_up"
+
+[node name="PoopingPositions" type="Node2D" parent="."]
+
+[node name="Butthole" type="Node2D" parent="PoopingPositions"]
+position = Vector2(0, -24)
