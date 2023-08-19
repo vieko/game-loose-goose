@@ -1,5 +1,11 @@
 extends Area2D
 
+# TODO SHOW animation based on movement direction
+# TODO SET starting position on Y for Broose
+# TODO Scrolling Background
+# TODO Insects
+# TODO Random Background Sections
+
 # PRELOAD Scenes
 var plPoop := preload("res://Poop/Poop.tscn")
 
@@ -61,9 +67,6 @@ func _physics_process(delta):
 
   velocity = directionVector.normalized() * speed
   position += velocity * delta
-
-  # TODO SHOW animation based on movement direction
-  # TODO SET starting position on Y for Broose
 
   # KEEP Broose within the screen
   var viewRect := get_viewport_rect()

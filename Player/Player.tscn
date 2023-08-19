@@ -49,6 +49,7 @@ animations = [{
 script = ExtResource("1_hyoxu")
 speed = 400.0
 poopDelay = 0.5
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -62,7 +63,7 @@ animation = &"walk_up"
 [node name="PoopingPositions" type="Node2D" parent="."]
 
 [node name="Butthole" type="Node2D" parent="PoopingPositions"]
-position = Vector2(0, -24)
+position = Vector2(0, -48)
 
 [node name="PoopDelayTimer" type="Timer" parent="."]
 one_shot = true

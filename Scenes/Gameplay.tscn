@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6hq1ixydccre"]
+[gd_scene load_steps=5 format=3 uid="uid://b6hq1ixydccre"]
 
+[ext_resource type="Texture2D" uid="uid://c0alaqq605t7p" path="res://Textures/backgroundColor.png" id="1_i2i4c"]
 [ext_resource type="PackedScene" uid="uid://rd3nmn3ct4ag" path="res://Player/Player.tscn" id="1_smka4"]
+[ext_resource type="PackedScene" uid="uid://4si042pqjbl3" path="res://Backgrounds/Background.tscn" id="2_wyw28"]
+[ext_resource type="Script" path="res://Backgrounds/Background.gd" id="3_c2nqs"]
 
 [node name="Gameplay" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(3.2, 4.8)
+texture = ExtResource("1_i2i4c")
+centered = false
+
+[node name="GradientBackground" parent="." instance=ExtResource("2_wyw28")]
+script = ExtResource("3_c2nqs")
 
 [node name="Player" parent="." instance=ExtResource("1_smka4")]
 position = Vector2(248, 307)
