@@ -1,12 +1,15 @@
 extends Area2D
 
+# PRELOAD Scenes
+var plPoop := preload("res://Poop/Poop.tscn")
+
+# DEFINE Constants
+enum Modes { WALK, POOP }
+
 # DEFINE Variables
 @onready var animatedSprite := $AnimatedSprite2D
-
 @export var speed: float = 100
 var velocity := Vector2(0,0)
-
-enum Modes { WALK, POOP }
 var current_mode = Modes.WALK
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
@@ -19,9 +22,17 @@ func _process(delta):
   else:
     animatedSprite.play("walk_up")
 
+  # TODO CHECK if on shooting mode
+
+  # CHECK if shooting
+  if Input.is_action_pressed("poop"):
+    var poop := plPoop.instantiate()
+    poop.position = position
+    get_tree().current_scene.add_child(poop)
+
 # TIME SENSITIVE THINGS SHOULD GO HERE
 func _physics_process(delta):
-  var directionVector := Vector2(0,0)                                           # fixes diagonal acceleration
+  var directionVector := Vector2(0,0)
 
   # CHECK on state
   match current_mode:
@@ -30,16 +41,18 @@ func _physics_process(delta):
     Modes.POOP:
       poop()
 
-  # change the walking direction based on keys pressed
+  # CHANGE the walking direction based on keys pressed
   if Input.is_action_pressed("move_left"):
     directionVector.x = -1
   elif Input.is_action_pressed("move_right"):
     directionVector.x = 1
 
+  # TOGGLE modes
   if Input.is_action_just_pressed("flip"):
+    # TODO toggle should only be possible after X time has passed
     toggle_mode()
 
-  velocity = directionVector.normalized() * speed                               # always one
+  velocity = directionVector.normalized() * speed
   position += velocity * delta
 
   # TODO SHOW animation based on movement direction
@@ -57,8 +70,4 @@ func poop():
 
 func toggle_mode():
   current_mode = Modes.WALK if current_mode == Modes.POOP else Modes.POOP
-  match current_mode:
-    Modes.WALK:
-      print("Switched to Walk Mode")
-    Modes.POOP:
-      print("Switched to Poop Mode")
+
