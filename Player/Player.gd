@@ -5,6 +5,12 @@ class_name Player
 # TODO SHOW animation based on movement direction
 # TODO SET starting position on Y for Broose
 # TODO Random Background Sections
+# TODO Stop collision when enemy is down
+# TODO Jump over when enemy is down
+# TODO Spawn more enemies
+# TODO Spawn food
+# TODO Handle eating logic
+# TODO Add poop meter + logic
 
 # PRELOAD Scenes
 var plPoop := preload("res://Poop/Poop.tscn")

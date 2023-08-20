@@ -2,11 +2,13 @@ extends Area2D
 
 @export var minSpeed: float = 60
 @export var maxSpeed: float = 90
+@export var endSpeed: float = 30
 
 @export var health: int = 3
 
 var speed: float = 0
 var playerInArea: Player = null
+var isDead: bool = false
 
 func _ready():
   # TODO change the angle
@@ -14,7 +16,7 @@ func _ready():
   add_to_group(Globals.Groups.DAMAGEABLES)
 
 func _process(delta):
-  if playerInArea != null:
+  if playerInArea != null and !isDead:
     playerInArea.damage(1)
 
 func _physics_process(delta):
@@ -23,7 +25,9 @@ func _physics_process(delta):
 func damage(amount: int):
   health -= amount
   if health <= 0:
-    queue_free()
+    # queue_free()
+    speed = endSpeed
+    isDead = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
   queue_free()
