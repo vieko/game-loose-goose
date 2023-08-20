@@ -1,10 +1,12 @@
 extends Area2D
 
-@export var minSpeed: float = 60
-@export var maxSpeed: float = 90
-@export var endSpeed: float = 60
+@export var minSpeed: float = 40
+@export var maxSpeed: float = 60
+@export var endSpeed: float = Globals.cameraSpeed
 
 @export var health: int = 3
+
+@onready var animatedSprite := $AnimatedSprite2D
 
 var speed: float = 0
 var playerInArea: Player = null
@@ -13,6 +15,7 @@ var isDead: bool = false
 func _ready():
   # TODO change the angle
   speed = randf_range(minSpeed, maxSpeed)
+  animatedSprite.play()
   add_to_group(Globals.Groups.DAMAGEABLES)
 
 func _process(delta):
@@ -27,6 +30,9 @@ func damage(amount: int):
   if health <= 0:
     speed = endSpeed
     isDead = true
+    animatedSprite.stop()
+    queue_free()
+    #modulate = Color(1, 0, 0, 1)
     print("PORCUPINE IS DEAD!")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

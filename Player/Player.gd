@@ -2,7 +2,6 @@ extends Area2D
 
 class_name Player
 
-# TODO Add porcupine sprites
 # TODO Add squirrel sprites
 
 # TODO Add food items (bugs)

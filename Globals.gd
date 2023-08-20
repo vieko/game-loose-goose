@@ -9,7 +9,7 @@ var startHealth: int = 3
 var poopStarting: int = 10
 var poopMax: int = 20
 var walkingSpeed: float = 80
-var cameraSpeed: float = 200
+var cameraSpeed: float = 60
 
 # Signals
 signal on_player_health_changed(health)

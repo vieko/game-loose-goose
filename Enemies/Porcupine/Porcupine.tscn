@@ -1,17 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgbe1homvwcit"]
+[gd_scene load_steps=8 format=3 uid="uid://dgbe1homvwcit"]
 
 [ext_resource type="Script" path="res://Enemies/Porcupine/Porcupine.gd" id="1_kvne4"]
-[ext_resource type="Texture2D" uid="uid://dxkjqqvvg6evi" path="res://Textures/porcupineGeneric.png" id="2_h85tb"]
+[ext_resource type="Texture2D" uid="uid://big755brf0e7h" path="res://Enemies/Porcupine/porcupine_walk_01.png" id="2_1dgfp"]
+[ext_resource type="Texture2D" uid="uid://c8os8iskx17f8" path="res://Enemies/Porcupine/porcupine_walk_02.png" id="3_bb7k1"]
+[ext_resource type="Texture2D" uid="uid://w3lk6pgduv02" path="res://Enemies/Porcupine/porcupine_walk_03.png" id="4_b3vff"]
+[ext_resource type="Texture2D" uid="uid://bj4i4nimjxvg2" path="res://Enemies/Porcupine/porcupine_walk_04.png" id="5_30dq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5s8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1dgfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bb7k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b3vff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_30dq7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcmn8"]
 size = Vector2(40, 40)
 
 [node name="Porcupine" type="Area2D"]
 script = ExtResource("1_kvne4")
-endSpeed = 20.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_h85tb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_e5s8s")
+frame_progress = 0.961107
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
