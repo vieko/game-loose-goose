@@ -147,7 +147,6 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_hyoxu")
-speed = 400.0
 poopDelay = 0.5
 metadata/_edit_group_ = true
 

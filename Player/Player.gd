@@ -4,12 +4,18 @@ class_name Player
 
 # TODO SET starting position for Broose via code
 # TODO Random Background Sections
-# TODO Stop collision when enemy is down
-# TODO Jump over when enemy is down
 # TODO Spawn more enemies
 # TODO Spawn food
 # TODO Handle eating logic
 # TODO Add poop meter + logic
+
+# TODO Add Goose Hover
+
+# TODO Broose is invincible when jumping and hovering
+
+# TODO Jump over when enemy is down
+# TODO Stop poop collision when enemy is down
+
 
 # PRELOAD Scenes
 var plPoop := preload("res://Poop/Poop.tscn")
@@ -98,6 +104,7 @@ func flipToWalk():
   isToggling = false
   current_mode = Globals.Modes.WALK
   animatedSprite.play("walk")
+  print("CURRENT MODE: %s" % current_mode)
 
 func flipToPoop():
   animatedSprite.play("flip_to_poop")
@@ -113,6 +120,7 @@ func flipToPoop():
   isToggling = false
   current_mode = Globals.Modes.POOP
   animatedSprite.play("poop")
+  print("CURRENT MODE: %s" % current_mode)
 
 func damage(amount: int):
   if !ignoreDamageTimer.is_stopped():
@@ -132,8 +140,6 @@ func toggle_mode():
     Globals.Modes.POOP:
       if !isToggling:
         flipToWalk()
-
-  print("CURRENT MODE: %s" % current_mode)
 
   #current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
   #print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")

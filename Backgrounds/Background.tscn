@@ -1,12 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://4si042pqjbl3"]
 
-[ext_resource type="Texture2D" uid="uid://rtjoskxtsbrg" path="res://Textures/gradientBackgroundGeneric.png" id="1_iagjy"]
+[ext_resource type="Texture2D" uid="uid://cu1d0ei17018x" path="res://Textures/Background.png" id="1_rygyx"]
 
 [node name="Background" type="ParallaxBackground"]
 
 [node name="GradientLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(0, 720)
+motion_scale = Vector2(0.455, 0.455)
+motion_mirroring = Vector2(0, 4500)
 
 [node name="Sprite2D" type="Sprite2D" parent="GradientLayer"]
-position = Vector2(240, 360)
-texture = ExtResource("1_iagjy")
+position = Vector2(241, 2275)
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("1_rygyx")
