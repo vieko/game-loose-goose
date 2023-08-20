@@ -2,7 +2,6 @@ extends Area2D
 
 class_name Player
 
-# TODO SHOW animation based on movement direction
 # TODO SET starting position for Broose via code
 # TODO Random Background Sections
 # TODO Stop collision when enemy is down
@@ -30,6 +29,7 @@ var velocity := Vector2(0,0)
 var current_mode = Globals.Modes.WALK
 var isJumping: bool = false
 var isHovering:bool = false
+var isToggling:bool = false
 
 func _ready():
   animatedSprite.play("walk")
@@ -88,24 +88,29 @@ func flipToWalk():
   animatedSprite.play("flip_to_walk")
   isJumping = true
   isHovering = false
+  isToggling = true
   var frameCount = 8
   var frameRate = 5
   var animationLength = frameCount / frameRate
   var timer := get_tree().create_timer(animationLength)
   await timer.timeout
   isJumping = false
+  isToggling = false
   current_mode = Globals.Modes.WALK
   animatedSprite.play("walk")
 
 func flipToPoop():
-  isJumping = true
   animatedSprite.play("flip_to_poop")
+  isJumping = true
+  isHovering = false
+  isToggling = true
   var frameCount = 8
   var frameRate = 5
   var animationLength = frameCount / frameRate
   var timer := get_tree().create_timer(animationLength)
   await timer.timeout
   isJumping = false
+  isToggling = false
   current_mode = Globals.Modes.POOP
   animatedSprite.play("poop")
 
@@ -122,9 +127,11 @@ func damage(amount: int):
 func toggle_mode():
   match current_mode:
     Globals.Modes.WALK:
-      flipToPoop()
+      if !isToggling:
+        flipToPoop()
     Globals.Modes.POOP:
-      flipToWalk()
+      if !isToggling:
+        flipToWalk()
 
   print("CURRENT MODE: %s" % current_mode)
 
