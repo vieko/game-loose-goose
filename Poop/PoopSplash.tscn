@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://du3o7bd7yx8ff"]
+
+[ext_resource type="Texture2D" uid="uid://bmyko3coynbfx" path="res://Textures/poopSplashGeneric.png" id="1_pwfv8"]
+[ext_resource type="Script" path="res://Poop/PoopSplash.gd" id="2_cwvhm"]
+
+[node name="PoopSplash" type="Sprite2D"]
+texture = ExtResource("1_pwfv8")
+script = ExtResource("2_cwvhm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

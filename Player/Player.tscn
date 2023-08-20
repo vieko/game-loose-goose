@@ -70,3 +70,5 @@ one_shot = true
 
 [node name="IgnoreDamageTimer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="timeout" from="IgnoreDamageTimer" to="." method="_on_ignore_damage_timer_timeout"]
