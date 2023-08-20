@@ -1,15 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://du3o7bd7yx8ff"]
+[gd_scene load_steps=6 format=3 uid="uid://du3o7bd7yx8ff"]
 
-[ext_resource type="Texture2D" uid="uid://bmyko3coynbfx" path="res://Textures/poopSplashGeneric.png" id="1_pwfv8"]
+[ext_resource type="Texture2D" uid="uid://cxbva0ese2nlm" path="res://Textures/poop/pooyectile_one_07.png" id="1_d1v27"]
 [ext_resource type="Script" path="res://Poop/PoopSplash.gd" id="2_cwvhm"]
+[ext_resource type="Texture2D" uid="uid://4w60wjjxmyw7" path="res://Textures/poop/pooyectile_one_08.png" id="2_qrux6"]
+[ext_resource type="Texture2D" uid="uid://dy8dxssw4b8y1" path="res://Textures/poop/pooyectile_one_09.png" id="3_m7cjv"]
 
-[node name="PoopSplash" type="Sprite2D"]
-texture = ExtResource("1_pwfv8")
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfkpv"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_d1v27")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_qrux6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_m7cjv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
 script = ExtResource("2_cwvhm")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 52)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_vfkpv")
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 0.05
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

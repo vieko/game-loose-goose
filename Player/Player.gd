@@ -9,8 +9,6 @@ class_name Player
 # TODO Handle eating logic
 # TODO Add poop meter + logic
 
-# TODO Add Goose Hover
-
 # TODO Broose is invincible when jumping and hovering
 
 # TODO Jump over when enemy is down

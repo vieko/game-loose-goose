@@ -1,24 +1,30 @@
-[gd_scene load_steps=33 format=3 uid="uid://rd3nmn3ct4ag"]
+[gd_scene load_steps=47 format=3 uid="uid://rd3nmn3ct4ag"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_hyoxu"]
+[ext_resource type="Texture2D" uid="uid://ccohhj3j7ys34" path="res://Textures/broose/goose_eat_01.png" id="2_0wbx3"]
 [ext_resource type="Texture2D" uid="uid://bgfii7vroke1d" path="res://Textures/broose/broose_jump_01.png" id="2_60bf0"]
 [ext_resource type="Texture2D" uid="uid://cappypvfcdk3u" path="res://Textures/broose/broose_walk_01.png" id="2_gonhu"]
 [ext_resource type="Texture2D" uid="uid://dvul3xbvw2sp4" path="res://Textures/broose/broose_reverse_01.png" id="2_w7m0y"]
 [ext_resource type="Texture2D" uid="uid://dv8aj4sodte7h" path="res://Textures/broose/broose_reverse_02.png" id="3_dddwa"]
+[ext_resource type="Texture2D" uid="uid://dx5pyf1dgrvw8" path="res://Textures/broose/goose_eat_02.png" id="3_jvoih"]
 [ext_resource type="Texture2D" uid="uid://daf1ix1potcle" path="res://Textures/broose/broose_walk_02.png" id="3_ux8ae"]
 [ext_resource type="Texture2D" uid="uid://q1hgedq83mh8" path="res://Textures/broose/broose_jump_02.png" id="3_vn1jf"]
 [ext_resource type="Texture2D" uid="uid://duygu2xi5l1by" path="res://Textures/broose/broose_jump_03.png" id="4_6jw4t"]
 [ext_resource type="Texture2D" uid="uid://bpb4nc35jlc5h" path="res://Textures/broose/broose_reverse_03.png" id="4_c4vdd"]
 [ext_resource type="Texture2D" uid="uid://ck4tw0vfpmqw" path="res://Textures/broose/broose_walk_03.png" id="4_h584o"]
+[ext_resource type="Texture2D" uid="uid://cam71ecyiixrh" path="res://Textures/broose/goose_eat_03.png" id="4_m7nvm"]
 [ext_resource type="Texture2D" uid="uid://bkga1uvuh08j5" path="res://Textures/broose/broose_walk_04.png" id="5_1prxx"]
 [ext_resource type="Texture2D" uid="uid://b63yu7fe10w7n" path="res://Textures/broose/broose_reverse_04.png" id="5_3b2cy"]
 [ext_resource type="Texture2D" uid="uid://bdhk3j4g7fmvh" path="res://Textures/broose/broose_jump_04.png" id="5_m0vfq"]
+[ext_resource type="Texture2D" uid="uid://mw5tohgta084" path="res://Textures/broose/goose_eat_04.png" id="5_y1b4k"]
 [ext_resource type="Texture2D" uid="uid://bnqey0ao1h8ln" path="res://Textures/broose/broose_walk_05.png" id="6_e00gt"]
 [ext_resource type="Texture2D" uid="uid://dj3yfu1txcnpk" path="res://Textures/broose/broose_jump_05.png" id="6_pln1e"]
 [ext_resource type="Texture2D" uid="uid://dmqyvv3nqam3p" path="res://Textures/broose/broose_reverse_05.png" id="6_ur1ae"]
+[ext_resource type="Texture2D" uid="uid://balu10x7qrqp3" path="res://Textures/broose/goose_eat_05.png" id="6_yll56"]
 [ext_resource type="Texture2D" uid="uid://csf4pnasgc6yc" path="res://Textures/broose/broose_walk_06.png" id="7_7syfr"]
 [ext_resource type="Texture2D" uid="uid://dg3kfocdtlkpp" path="res://Textures/broose/broose_jump_06.png" id="7_huwo3"]
 [ext_resource type="Texture2D" uid="uid://d0w5ififvnn1u" path="res://Textures/broose/broose_reverse_06.png" id="7_kuerx"]
+[ext_resource type="Texture2D" uid="uid://cikf8d10npn7g" path="res://Textures/broose/goose_eat_06.png" id="7_n3oac"]
 [ext_resource type="Texture2D" uid="uid://d0o58o7d362dc" path="res://Textures/broose/broose_jump_07.png" id="8_8wd5j"]
 [ext_resource type="Texture2D" uid="uid://buc7hxspw8kfs" path="res://Textures/broose/broose_reverse_07.png" id="8_f2nfb"]
 [ext_resource type="Texture2D" uid="uid://drke4ynw3q1x" path="res://Textures/broose/broose_jump_08.png" id="9_4x732"]
@@ -30,6 +36,14 @@
 [ext_resource type="Texture2D" uid="uid://bxvtaqx0rxe6c" path="res://Textures/broose/broose_jumpback_06.png" id="15_w4h32"]
 [ext_resource type="Texture2D" uid="uid://bdvq68t2vwpf0" path="res://Textures/broose/broose_jumpback_07.png" id="16_t0hyp"]
 [ext_resource type="Texture2D" uid="uid://bhh5vytdf77lt" path="res://Textures/broose/broose_jumpback_08.png" id="17_y7e3r"]
+[ext_resource type="Texture2D" uid="uid://etpuuay75olx" path="res://Textures/broose/broose_hover_01.png" id="24_dp62k"]
+[ext_resource type="Texture2D" uid="uid://g7k3dc5o0afu" path="res://Textures/broose/broose_hover_02.png" id="25_v4d44"]
+[ext_resource type="Texture2D" uid="uid://dosifqrid4nhn" path="res://Textures/broose/broose_hover_03.png" id="26_mvhwi"]
+[ext_resource type="Texture2D" uid="uid://bstkdvw8qbgwq" path="res://Textures/broose/broose_hover_04.png" id="27_nlfiw"]
+[ext_resource type="Texture2D" uid="uid://cio85nhf4dxtg" path="res://Textures/broose/broose_hover_05.png" id="28_ein2m"]
+[ext_resource type="Texture2D" uid="uid://dicpi6c7algba" path="res://Textures/broose/broose_hover_06.png" id="29_nkree"]
+[ext_resource type="Texture2D" uid="uid://blj5u6louv61s" path="res://Textures/broose/broose_hover_07.png" id="30_dy1rp"]
+[ext_resource type="Texture2D" uid="uid://bumu3hn2bahmr" path="res://Textures/broose/broose_hover_08.png" id="31_kkgfh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haf32"]
 radius = 18.0059
@@ -37,6 +51,29 @@ height = 53.9998
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rr6dq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0wbx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jvoih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m7nvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y1b4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yll56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n3oac")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_60bf0")
@@ -94,6 +131,35 @@ animations = [{
 "loop": false,
 "name": &"flip_to_walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_dp62k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_v4d44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mvhwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_nlfiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ein2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nkree")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dy1rp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_kkgfh")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,12 +224,12 @@ shape = SubResource("CapsuleShape2D_haf32")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rr6dq")
-animation = &"flip_to_poop"
+animation = &"poop"
 
 [node name="PoopingPositions" type="Node2D" parent="."]
 
 [node name="Butthole" type="Node2D" parent="PoopingPositions"]
-position = Vector2(0, -6)
+position = Vector2(0, 20)
 
 [node name="PoopDelayTimer" type="Timer" parent="."]
 one_shot = true

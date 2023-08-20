@@ -2,7 +2,12 @@ extends Area2D
 
 var plPoopSplash := preload("res://Poop/PoopSplash.tscn")
 
+@onready var animatedSprite := $AnimatedSprite2D
+
 @export var speed: float = 500
+
+func _ready():
+  animatedSprite.play("one")
 
 func _physics_process(delta):
   position.y -= speed * delta
