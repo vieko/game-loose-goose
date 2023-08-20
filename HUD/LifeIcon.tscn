@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clmvmocekya2n"]
 
-[ext_resource type="Texture2D" uid="uid://dq8tblria6web" path="res://Textures/playerLifeGeneric.png" id="1_uliku"]
+[ext_resource type="Texture2D" uid="uid://b402vm2sjiphf" path="res://Textures/broose/broose-health-icon.png" id="1_pa7ni"]
 
 [node name="LifeIcon" type="Control"]
 layout_mode = 3
@@ -10,6 +10,7 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_uliku")
+offset_right = 59.0
+offset_bottom = 67.0
+texture = ExtResource("1_pa7ni")
+expand_mode = 1

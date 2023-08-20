@@ -13,8 +13,8 @@ metadata/_edit_vertical_guides_ = [16.0, 432.0]
 
 [node name="HealthContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 8.0
 offset_top = 664.0
-offset_right = 156.0
+offset_right = 184.0
 offset_bottom = 704.0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 70
