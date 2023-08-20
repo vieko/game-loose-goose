@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2lrrvytu45b2"]
+
+[ext_resource type="Script" path="res://Enemies/Squirrel/Squirrel.gd" id="1_uorar"]
+[ext_resource type="Texture2D" uid="uid://dmklr0mgwg233" path="res://Textures/squirrelGeneric.png" id="2_nb4bv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcmn8"]
+
+[node name="Squirrel" type="Area2D"]
+script = ExtResource("1_uorar")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nb4bv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kcmn8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

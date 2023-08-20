@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6hq1ixydccre"]
+[gd_scene load_steps=7 format=3 uid="uid://b6hq1ixydccre"]
 
 [ext_resource type="PackedScene" uid="uid://rd3nmn3ct4ag" path="res://Player/Player.tscn" id="1_smka4"]
 [ext_resource type="PackedScene" uid="uid://4si042pqjbl3" path="res://Backgrounds/Background.tscn" id="2_wyw28"]
 [ext_resource type="Texture2D" uid="uid://cddjska8hvyxi" path="res://Textures/bugBigGeneric.png" id="3_2jekk"]
 [ext_resource type="Script" path="res://Backgrounds/Background.gd" id="3_c2nqs"]
-[ext_resource type="PackedScene" uid="uid://dgbe1homvwcit" path="res://Enemies/Porcupine.tscn" id="5_y6030"]
+[ext_resource type="PackedScene" uid="uid://dgbe1homvwcit" path="res://Enemies/Porcupine/Porcupine.tscn" id="5_lhres"]
+[ext_resource type="PackedScene" uid="uid://c2lrrvytu45b2" path="res://Enemies/Squirrel/Squirrel.tscn" id="6_pfhdq"]
 
 [node name="Gameplay" type="Node"]
 
@@ -35,8 +36,11 @@ angle_max = 40.0
 scale_amount_min = 0.1
 scale_amount_max = 0.25
 
-[node name="Porcupine" parent="." instance=ExtResource("5_y6030")]
-position = Vector2(244, 87)
-
 [node name="Player" parent="." instance=ExtResource("1_smka4")]
 position = Vector2(248, 574)
+
+[node name="Porcupine" parent="." instance=ExtResource("5_lhres")]
+position = Vector2(240, 49)
+
+[node name="Squirrel" parent="." instance=ExtResource("6_pfhdq")]
+position = Vector2(95, 75)

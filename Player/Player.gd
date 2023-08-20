@@ -21,7 +21,7 @@ var plPoop := preload("res://Poop/Poop.tscn")
 @onready var poopDelayTimer := $PoopDelayTimer
 @onready var ignoreDamageTimer := $IgnoreDamageTimer
 
-@export var speed: float = 100
+@export var speed: float = Globals.walkingSpeed
 @export var poopDelay: float = 0.1
 @export var health: int = 3
 @export var damageIgnoredTime := 0.5

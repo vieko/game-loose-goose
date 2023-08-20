@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var minSpeed: float = 60
-@export var maxSpeed: float = 90
-@export var endSpeed: float = 30
+@export var minSpeed: float = 100
+@export var maxSpeed: float = 140
+@export var endSpeed: float = Globals.downSpeed
 
-@export var health: int = 3
+@export var health: int = 1
 
 var speed: float = 0
 var playerInArea: Player = null
@@ -25,7 +25,6 @@ func _physics_process(delta):
 func damage(amount: int):
   health -= amount
   if health <= 0:
-    # queue_free()
     speed = endSpeed
     isDead = true
 

@@ -1,7 +1,6 @@
 extends ParallaxBackground
 
-# TODO should this be controlled over at Main?
-@export var camera_velocity: Vector2 = Vector2(0,100)
+@export var camera_velocity: Vector2 = Vector2(0,Globals.walkingSpeed)
 
 func _process(delta: float) -> void:
   var new_offset: Vector2 = get_scroll_offset() + camera_velocity * delta
