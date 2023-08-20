@@ -13,10 +13,12 @@ var plPoop := preload("res://Poop/Poop.tscn")
 @onready var animatedSprite := $AnimatedSprite2D
 @onready var poopingPositions := $PoopingPositions
 @onready var poopDelayTimer := $PoopDelayTimer
+@onready var ignoreDamageTimer := $IgnoreDamageTimer
 
 @export var speed: float = 100
 @export var poopDelay: float = 0.1
 @export var health: int = 3
+@export var damageIgnoredTime := 0.5
 
 var velocity := Vector2(0,0)
 var current_mode = Globals.Modes.WALK
@@ -80,6 +82,9 @@ func poop():
   pass
 
 func damage(amount: int):
+  if !ignoreDamageTimer.is_stopped():
+    return
+  ignoreDamageTimer.start(damageIgnoredTime)
   health -= amount
   print("Broose's Health: %s" % health)
   if health <= 0:
@@ -90,3 +95,5 @@ func toggle_mode():
   current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
   print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
 
+func _on_ignore_damage_timer_timeout():
+  pass
