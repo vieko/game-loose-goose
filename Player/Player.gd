@@ -2,18 +2,31 @@ extends Area2D
 
 class_name Player
 
-# TODO SET starting position for Broose via code
-# TODO Random Background Sections
-# TODO Spawn more enemies
-# TODO Spawn food
-# TODO Handle eating logic
-# TODO Add poop meter + logic
+# TODO Add player lives
+# TODO Add poop meter
 
+# TODO Add porcupine sprites
+# TODO Add squirrel sprites
+
+# TODO Add food items
+# TODO Spawn food
+
+# TODO Handle Broose eats
+# TODO Handle Broose hovers
+
+# TODO Spawn more enemies
+
+# TODO Add sounds
+
+# TODO Add vignette
+
+# TODO Add Start Screen
+# TODO Add Game Over Screen
+
+# TODO Stop poop collision when enemy is down
 # TODO Broose is invincible when jumping and hovering
 
-# TODO Jump over when enemy is down
-# TODO Stop poop collision when enemy is down
-
+# TODO Random Background Sections
 
 # PRELOAD Scenes
 var plPoop := preload("res://Poop/Poop.tscn")

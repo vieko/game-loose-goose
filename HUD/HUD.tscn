@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch0bongvj32ly"]
+
+[ext_resource type="PackedScene" uid="uid://clmvmocekya2n" path="res://HUD/LifeIcon.tscn" id="1_xpdts"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 720.0
+
+[node name="LifeContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 664.0
+offset_right = 156.0
+offset_bottom = 704.0
+theme_override_constants/separation = 50
+
+[node name="LifeIcon" parent="LifeContainer" instance=ExtResource("1_xpdts")]
+layout_mode = 2
+
+[node name="LifeIcon2" parent="LifeContainer" instance=ExtResource("1_xpdts")]
+layout_mode = 2
+
+[node name="LifeIcon3" parent="LifeContainer" instance=ExtResource("1_xpdts")]
+layout_mode = 2

@@ -2,7 +2,7 @@ extends Area2D
 
 @export var minSpeed: float = 60
 @export var maxSpeed: float = 90
-@export var endSpeed: float = Globals.downSpeed
+@export var endSpeed: float = 60
 
 @export var health: int = 3
 
@@ -25,9 +25,9 @@ func _physics_process(delta):
 func damage(amount: int):
   health -= amount
   if health <= 0:
-    # queue_free()
     speed = endSpeed
     isDead = true
+    print("PORCUPINE IS DEAD!")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
   queue_free()
