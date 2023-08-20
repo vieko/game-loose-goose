@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Player
+
 # TODO SHOW animation based on movement direction
 # TODO SET starting position on Y for Broose
 # TODO Random Background Sections
@@ -14,9 +16,13 @@ var plPoop := preload("res://Poop/Poop.tscn")
 
 @export var speed: float = 100
 @export var poopDelay: float = 0.1
+@export var health: int = 3
 
 var velocity := Vector2(0,0)
 var current_mode = Globals.Modes.WALK
+
+func _ready():
+  print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
 func _process(delta):
@@ -68,11 +74,19 @@ func _physics_process(delta):
   position.x = clamp(position.x, 0, viewRect.size.x)
 
 func walk():
-  print("Broose is walking!")
+  pass
 
 func poop():
-  print("Broose is pooping!")
+  pass
+
+func damage(amount: int):
+  health -= amount
+  print("Broose's Health: %s" % health)
+  if health <= 0:
+    print("Broose is DEAD!")
+    queue_free()
 
 func toggle_mode():
   current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
+  print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
 
