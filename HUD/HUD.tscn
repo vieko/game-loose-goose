@@ -11,7 +11,7 @@ script = ExtResource("1_6pbbs")
 metadata/_edit_horizontal_guides_ = [704.0, 664.0]
 metadata/_edit_vertical_guides_ = [16.0, 432.0]
 
-[node name="LifeContainer" type="HBoxContainer" parent="."]
+[node name="HealthContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 664.0

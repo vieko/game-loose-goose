@@ -10,6 +10,10 @@
 
 [node name="Background" parent="." instance=ExtResource("1_i2s4q")]
 
+[node name="HUD" parent="." instance=ExtResource("3_fq6j8")]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
 [node name="Player" parent="." instance=ExtResource("2_835jn")]
 position = Vector2(240, 580)
 
@@ -24,7 +28,3 @@ position = Vector2(392, 80)
 
 [node name="Squirrel3" parent="." instance=ExtResource("5_qiati")]
 position = Vector2(176, 144)
-
-[node name="HUD" parent="." instance=ExtResource("3_fq6j8")]
-size_flags_horizontal = 0
-size_flags_vertical = 0

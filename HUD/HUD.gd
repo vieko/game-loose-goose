@@ -1,18 +1,24 @@
 extends Control
 
-var pLifeIcon = preload("res://HUD/LifeIcon.tscn")
+var pHealthIcon = preload("res://HUD/LifeIcon.tscn")
 
-@onready var lifeContainer := $LifeContainer
+@onready var healthContainer := $HealthContainer
 
 func _ready():
-  clearLives()
-  setLives(3)
+  clearHealth()
+  #setHealth(Globals.startHeatlh)
+  Globals.connect("on_player_health_changed", _on_player_health_changed)
 
-func clearLives():
-  for child in lifeContainer.get_children():
+func clearHealth():
+  for child in healthContainer.get_children():
+    healthContainer.remove_child(child)
     child.queue_free()
 
-func setLives(lives: int):
-  clearLives()
-  for i in range(lives):
-    lifeContainer.add_child(pLifeIcon.instantiate())
+func setHealth(health: int):
+  clearHealth()
+  for i in range(health):
+    healthContainer.add_child(pHealthIcon.instantiate())
+
+func _on_player_health_changed(life: int):
+  setHealth(life)
+

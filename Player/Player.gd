@@ -39,7 +39,7 @@ var plPoop := preload("res://Poop/Poop.tscn")
 
 @export var speed: float = Globals.walkingSpeed
 @export var poopDelay: float = 0.1
-@export var health: int = 3
+@export var health: int = Globals.startHealth
 @export var damageIgnoredTime := 0.5
 
 var velocity := Vector2(0,0)
@@ -50,6 +50,7 @@ var isToggling:bool = false
 
 func _ready():
   animatedSprite.play("walk")
+  Globals.emit_signal("on_player_health_changed", health)
   print("CURRENT MODE: %s" % current_mode)
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
@@ -137,8 +138,11 @@ func damage(amount: int):
   if !ignoreDamageTimer.is_stopped():
     return
   ignoreDamageTimer.start(damageIgnoredTime)
+
   health -= amount
+  Globals.emit_signal("on_player_health_changed", health)
   print("Broose's Health: %s" % health)
+
   if health <= 0:
     print("Broose is DEAD!")
     queue_free()
