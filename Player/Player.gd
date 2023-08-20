@@ -7,9 +7,6 @@ extends Area2D
 # PRELOAD Scenes
 var plPoop := preload("res://Poop/Poop.tscn")
 
-# DEFINE Constants
-enum Modes { WALK, POOP }
-
 # DEFINE Variables
 @onready var animatedSprite := $AnimatedSprite2D
 @onready var poopingPositions := $PoopingPositions
@@ -19,7 +16,7 @@ enum Modes { WALK, POOP }
 @export var poopDelay: float = 0.1
 
 var velocity := Vector2(0,0)
-var current_mode = Modes.WALK
+var current_mode = Globals.Modes.WALK
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
 func _process(delta):
@@ -32,13 +29,13 @@ func _process(delta):
     animatedSprite.play("walk_up")
 
   # CHECK if shooting
-  if current_mode == Modes.POOP and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
+  if current_mode == Globals.Modes.POOP and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
     poopDelayTimer.start(poopDelay)
     for child in poopingPositions.get_children():
       var poop := plPoop.instantiate()
       poop.global_position = child.global_position
       get_tree().current_scene.add_child(poop)
-  elif current_mode == Modes.WALK and Input.is_action_pressed("poop"):
+  elif current_mode == Globals.Modes.WALK and Input.is_action_pressed("poop"):
     print("Broose can't drop a deuce when walking!")
 
 # TIME SENSITIVE THINGS SHOULD GO HERE
@@ -47,9 +44,9 @@ func _physics_process(delta):
 
   # CHECK on state
   match current_mode:
-    Modes.WALK:
+    Globals.Modes.WALK:
       walk()
-    Modes.POOP:
+    Globals.Modes.POOP:
       poop()
 
   # CHANGE the walking direction based on keys pressed
@@ -77,5 +74,5 @@ func poop():
   print("Broose is pooping!")
 
 func toggle_mode():
-  current_mode = Modes.WALK if current_mode == Modes.POOP else Modes.POOP
+  current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
 
