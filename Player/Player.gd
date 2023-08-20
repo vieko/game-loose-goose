@@ -2,26 +2,24 @@ extends Area2D
 
 class_name Player
 
-# TODO Add player lives
-# TODO Add poop meter
-
 # TODO Add porcupine sprites
 # TODO Add squirrel sprites
 
-# TODO Add food items
+# TODO Add food items (bugs)
 # TODO Spawn food
+
+# TODO Add sounds
+# TODO Music
 
 # TODO Handle Broose eats
 # TODO Handle Broose hovers
 
 # TODO Spawn more enemies
 
-# TODO Add sounds
-
-# TODO Add vignette
-
 # TODO Add Start Screen
 # TODO Add Game Over Screen
+
+# TODO Add vignette
 
 # TODO Stop poop collision when enemy is down
 # TODO Broose is invincible when jumping and hovering
@@ -29,7 +27,7 @@ class_name Player
 # TODO Random Background Sections
 
 # PRELOAD Scenes
-var plPoop := preload("res://Poop/Poop.tscn")
+var pPoop := preload("res://Poop/Poop.tscn")
 
 # DEFINE Variables
 @onready var animatedSprite := $AnimatedSprite2D
@@ -40,6 +38,7 @@ var plPoop := preload("res://Poop/Poop.tscn")
 @export var speed: float = Globals.walkingSpeed
 @export var poopDelay: float = 0.1
 @export var health: int = Globals.startHealth
+@export var poopCurrent: int = Globals.poopStarting
 @export var damageIgnoredTime := 0.5
 
 var velocity := Vector2(0,0)
@@ -51,6 +50,7 @@ var isToggling:bool = false
 func _ready():
   animatedSprite.play("walk")
   Globals.emit_signal("on_player_health_changed", health)
+  Globals.emit_signal("on_poop_meter_changed", poopCurrent)
   print("CURRENT MODE: %s" % current_mode)
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
@@ -59,8 +59,9 @@ func _process(delta):
   if current_mode == Globals.Modes.POOP and !isJumping and !isHovering and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
     poopDelayTimer.start(poopDelay)
     for child in poopingPositions.get_children():
-      var poop := plPoop.instantiate()
+      var poop := pPoop.instantiate()
       poop.global_position = child.global_position
+      Globals.emit_signal("on_poop_meter_changed", -2)
       get_tree().current_scene.add_child(poop)
   elif current_mode == Globals.Modes.WALK and Input.is_action_pressed("poop"):
     print("Broose can't drop a deuce when walking!")

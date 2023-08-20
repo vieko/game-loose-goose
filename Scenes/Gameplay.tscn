@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6hq1ixydccre"]
+[gd_scene load_steps=7 format=3 uid="uid://b6hq1ixydccre"]
 
 [ext_resource type="PackedScene" uid="uid://4si042pqjbl3" path="res://Backgrounds/Background.tscn" id="1_i2s4q"]
 [ext_resource type="PackedScene" uid="uid://rd3nmn3ct4ag" path="res://Player/Player.tscn" id="2_835jn"]
+[ext_resource type="Script" path="res://Backgrounds/Background.gd" id="2_trbox"]
 [ext_resource type="PackedScene" uid="uid://ch0bongvj32ly" path="res://HUD/HUD.tscn" id="3_fq6j8"]
 [ext_resource type="PackedScene" uid="uid://dgbe1homvwcit" path="res://Enemies/Porcupine/Porcupine.tscn" id="4_w38y3"]
 [ext_resource type="PackedScene" uid="uid://c2lrrvytu45b2" path="res://Enemies/Squirrel/Squirrel.tscn" id="5_qiati"]
@@ -9,12 +10,16 @@
 [node name="Gameplay" type="Node"]
 
 [node name="Background" parent="." instance=ExtResource("1_i2s4q")]
+script = ExtResource("2_trbox")
 
-[node name="HUD" parent="." instance=ExtResource("3_fq6j8")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_fq6j8")]
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Player" parent="." instance=ExtResource("2_835jn")]
+z_index = 100
 position = Vector2(240, 580)
 
 [node name="Porcupine" parent="." instance=ExtResource("4_w38y3")]
