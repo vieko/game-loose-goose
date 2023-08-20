@@ -28,22 +28,17 @@ var plPoop := preload("res://Poop/Poop.tscn")
 
 var velocity := Vector2(0,0)
 var current_mode = Globals.Modes.WALK
+var isJumping: bool = false
+var isHovering:bool = false
 
 func _ready():
-  print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
+  animatedSprite.play("walk")
+  print("CURRENT MODE: %s" % current_mode)
 
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
 func _process(delta):
-  # what animation should be shown?
-  match current_mode:
-    Globals.Modes.WALK:
-      animatedSprite.play("walk")
-    Globals.Modes.POOP:
-      animatedSprite.play("poop")
-
-
   # CHECK if shooting
-  if current_mode == Globals.Modes.POOP and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
+  if current_mode == Globals.Modes.POOP and !isJumping and !isHovering and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
     poopDelayTimer.start(poopDelay)
     for child in poopingPositions.get_children():
       var poop := plPoop.instantiate()
@@ -82,10 +77,37 @@ func _physics_process(delta):
   position.x = clamp(position.x, 0, viewRect.size.x)
 
 func walk():
+  #animatedSprite.play("walk")
   pass
 
 func poop():
+  #animatedSprite.play("poop")
   pass
+
+func flipToWalk():
+  animatedSprite.play("flip_to_walk")
+  isJumping = true
+  isHovering = false
+  var frameCount = 8
+  var frameRate = 5
+  var animationLength = frameCount / frameRate
+  var timer := get_tree().create_timer(animationLength)
+  await timer.timeout
+  isJumping = false
+  current_mode = Globals.Modes.WALK
+  animatedSprite.play("walk")
+
+func flipToPoop():
+  isJumping = true
+  animatedSprite.play("flip_to_poop")
+  var frameCount = 8
+  var frameRate = 5
+  var animationLength = frameCount / frameRate
+  var timer := get_tree().create_timer(animationLength)
+  await timer.timeout
+  isJumping = false
+  current_mode = Globals.Modes.POOP
+  animatedSprite.play("poop")
 
 func damage(amount: int):
   if !ignoreDamageTimer.is_stopped():
@@ -98,8 +120,16 @@ func damage(amount: int):
     queue_free()
 
 func toggle_mode():
-  current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
-  print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
+  match current_mode:
+    Globals.Modes.WALK:
+      flipToPoop()
+    Globals.Modes.POOP:
+      flipToWalk()
+
+  print("CURRENT MODE: %s" % current_mode)
+
+  #current_mode = Globals.Modes.WALK if current_mode == Globals.Modes.POOP else Globals.Modes.POOP
+  #print("Broose is walking!" if current_mode == Globals.Modes.WALK else "Broose is pooping!")
 
 func _on_ignore_damage_timer_timeout():
   pass

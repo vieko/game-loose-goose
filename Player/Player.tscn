@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://rd3nmn3ct4ag"]
+[gd_scene load_steps=33 format=3 uid="uid://rd3nmn3ct4ag"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_hyoxu"]
 [ext_resource type="Texture2D" uid="uid://bgfii7vroke1d" path="res://Textures/broose/broose_jump_01.png" id="2_60bf0"]
@@ -22,6 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://d0o58o7d362dc" path="res://Textures/broose/broose_jump_07.png" id="8_8wd5j"]
 [ext_resource type="Texture2D" uid="uid://buc7hxspw8kfs" path="res://Textures/broose/broose_reverse_07.png" id="8_f2nfb"]
 [ext_resource type="Texture2D" uid="uid://drke4ynw3q1x" path="res://Textures/broose/broose_jump_08.png" id="9_4x732"]
+[ext_resource type="Texture2D" uid="uid://rx7rex3xree2" path="res://Textures/broose/broose_jumpback_01.png" id="10_edunu"]
+[ext_resource type="Texture2D" uid="uid://ddm8a4j57iwv0" path="res://Textures/broose/broose_jumpback_02.png" id="11_05bfk"]
+[ext_resource type="Texture2D" uid="uid://8jb8jvlkkc6o" path="res://Textures/broose/broose_jumpback_03.png" id="12_g0c5k"]
+[ext_resource type="Texture2D" uid="uid://b47ub3axffkro" path="res://Textures/broose/broose_jumpback_04.png" id="13_y67qr"]
+[ext_resource type="Texture2D" uid="uid://dmjxungemcd1s" path="res://Textures/broose/broose_jumpback_05.png" id="14_fant6"]
+[ext_resource type="Texture2D" uid="uid://bxvtaqx0rxe6c" path="res://Textures/broose/broose_jumpback_06.png" id="15_w4h32"]
+[ext_resource type="Texture2D" uid="uid://bdvq68t2vwpf0" path="res://Textures/broose/broose_jumpback_07.png" id="16_t0hyp"]
+[ext_resource type="Texture2D" uid="uid://bhh5vytdf77lt" path="res://Textures/broose/broose_jumpback_08.png" id="17_y7e3r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haf32"]
 radius = 18.0059
@@ -54,12 +62,36 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_4x732")
 }],
-"loop": true,
+"loop": false,
 "name": &"flip_to_poop",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_edunu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_05bfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g0c5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y67qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fant6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w4h32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t0hyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y7e3r")
+}],
+"loop": false,
 "name": &"flip_to_walk",
 "speed": 5.0
 }, {
@@ -127,9 +159,7 @@ shape = SubResource("CapsuleShape2D_haf32")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rr6dq")
-animation = &"poop"
-frame = 2
-frame_progress = 0.231882
+animation = &"flip_to_poop"
 
 [node name="PoopingPositions" type="Node2D" parent="."]
 
@@ -142,4 +172,5 @@ one_shot = true
 [node name="IgnoreDamageTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="IgnoreDamageTimer" to="." method="_on_ignore_damage_timer_timeout"]
