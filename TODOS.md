@@ -4,3 +4,5 @@
 - [ ] BUILD for Linux
 - [ ] UPDATE to Itch
 - [ ] GET Game Description
+- [ ] ADD WASP Controls
+- [ ] ADD Controller Support

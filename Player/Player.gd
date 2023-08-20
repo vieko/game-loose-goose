@@ -3,7 +3,7 @@ extends Area2D
 class_name Player
 
 # TODO SHOW animation based on movement direction
-# TODO SET starting position on Y for Broose
+# TODO SET starting position for Broose via code
 # TODO Random Background Sections
 # TODO Stop collision when enemy is down
 # TODO Jump over when enemy is down
@@ -35,12 +35,12 @@ func _ready():
 # NON TIME SENSITIVE THINGS SHOULD GO HERE
 func _process(delta):
   # what animation should be shown?
-  if velocity.x < 0:
-    animatedSprite.play("walk_left")
-  elif velocity.x > 0:
-    animatedSprite.play("walk_right")
-  else:
-    animatedSprite.play("walk_up")
+  match current_mode:
+    Globals.Modes.WALK:
+      animatedSprite.play("walk")
+    Globals.Modes.POOP:
+      animatedSprite.play("poop")
+
 
   # CHECK if shooting
   if current_mode == Globals.Modes.POOP and Input.is_action_pressed("poop") and poopDelayTimer.is_stopped():
