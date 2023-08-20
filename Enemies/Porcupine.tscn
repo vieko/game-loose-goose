@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgbe1homvwcit"]
+
+[ext_resource type="Texture2D" uid="uid://dxkjqqvvg6evi" path="res://Textures/porcupineGeneric.png" id="1_lcp0j"]
+[ext_resource type="Script" path="res://Enemies/Porcupine.gd" id="1_rhlve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcmn8"]
+size = Vector2(40, 40)
+
+[node name="Porcupine" type="Area2D"]
+script = ExtResource("1_rhlve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lcp0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_kcmn8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(2, 2)

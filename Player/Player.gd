@@ -2,8 +2,6 @@ extends Area2D
 
 # TODO SHOW animation based on movement direction
 # TODO SET starting position on Y for Broose
-# TODO Scrolling Background
-# TODO Insects
 # TODO Random Background Sections
 
 # PRELOAD Scenes

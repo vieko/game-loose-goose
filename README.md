@@ -1,7 +1,7 @@
 # Loose Goose
 
 ### Learn
-- [Using Composition to Make More Scalable Games in Godot](https://www.youtube.com/watch?v=rCu8vQrdDDI)
+- [Using Composition to Make More Scalable Games in Godot](https://www.youtube.com/watch?v=rCu8vQrdDDI)
 
 ### Relevant Links
 - [Planning Board](https://app.excalidraw.com/s/A8TN6h8uIkN/4Vta6kw7sM9)
