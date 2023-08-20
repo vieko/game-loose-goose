@@ -2,13 +2,12 @@ extends Area2D
 
 class_name Player
 
-# TODO Add squirrel sprites
+# TODO Music
 
 # TODO Add food items (bugs)
 # TODO Spawn food
 
 # TODO Add sounds
-# TODO Music
 
 # TODO Handle Broose eats
 # TODO Handle Broose hovers

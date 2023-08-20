@@ -7,11 +7,14 @@ var plSquirrelExplode := preload("res://Enemies/Squirrel/SquirrelExplode.tscn")
 
 @export var health: int = 1
 
+@onready var animatedSprite := $AnimatedSprite2D
+
 var speed: float = 0
 var playerInArea: Player = null
 
 func _ready():
   # TODO change the angle
+  animatedSprite.play()
   speed = randf_range(minSpeed, maxSpeed)
   add_to_group(Globals.Groups.DAMAGEABLES)
 

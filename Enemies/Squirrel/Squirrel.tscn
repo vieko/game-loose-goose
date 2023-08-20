@@ -1,7 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2lrrvytu45b2"]
+[gd_scene load_steps=10 format=3 uid="uid://c2lrrvytu45b2"]
 
 [ext_resource type="Script" path="res://Enemies/Squirrel.gd" id="1_8npwe"]
-[ext_resource type="Texture2D" uid="uid://dmklr0mgwg233" path="res://Textures/squirrelGeneric.png" id="2_nb4bv"]
+[ext_resource type="Texture2D" uid="uid://dm760fvnl4omr" path="res://Enemies/Squirrel/squirrel_down_011.png" id="2_obh2j"]
+[ext_resource type="Texture2D" uid="uid://c7rir8kge7jmy" path="res://Enemies/Squirrel/squirrel_down_012.png" id="3_ronq3"]
+[ext_resource type="Texture2D" uid="uid://s0kj4ev1lhmr" path="res://Enemies/Squirrel/squirrel_down_013.png" id="4_cj7w3"]
+[ext_resource type="Texture2D" uid="uid://dgbbafqk4abkh" path="res://Enemies/Squirrel/squirrel_down_014.png" id="5_4vu7h"]
+[ext_resource type="Texture2D" uid="uid://bdh00b63gvjph" path="res://Enemies/Squirrel/squirrel_down_015.png" id="6_gh06e"]
+[ext_resource type="Texture2D" uid="uid://bhhimmhb1fhv4" path="res://Enemies/Squirrel/squirrel_down_016.png" id="7_ksj6p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu63k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_obh2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ronq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cj7w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4vu7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gh06e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ksj6p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcmn8"]
 
@@ -9,8 +40,9 @@
 script = ExtResource("1_8npwe")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nb4bv")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_bu63k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kcmn8")
