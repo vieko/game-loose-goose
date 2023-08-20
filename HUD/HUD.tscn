@@ -1,26 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch0bongvj32ly"]
 
-[ext_resource type="PackedScene" uid="uid://clmvmocekya2n" path="res://HUD/LifeIcon.tscn" id="1_xpdts"]
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_6pbbs"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 720.0
+script = ExtResource("1_6pbbs")
+metadata/_edit_horizontal_guides_ = [704.0, 664.0]
+metadata/_edit_vertical_guides_ = [16.0, 432.0]
 
-[node name="LifeContainer" type="BoxContainer" parent="."]
+[node name="LifeContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 664.0
 offset_right = 156.0
 offset_bottom = 704.0
 theme_override_constants/separation = 50
-
-[node name="LifeIcon" parent="LifeContainer" instance=ExtResource("1_xpdts")]
-layout_mode = 2
-
-[node name="LifeIcon2" parent="LifeContainer" instance=ExtResource("1_xpdts")]
-layout_mode = 2
-
-[node name="LifeIcon3" parent="LifeContainer" instance=ExtResource("1_xpdts")]
-layout_mode = 2
